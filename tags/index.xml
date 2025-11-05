@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Sergio Mora</title>
-    <link>https://sergiomora03.github.io/tags/</link>
+    <link>https://sergiomorapardo.github.io/tags/</link>
     <description>Recent content in Tags on Sergio Mora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 25 Aug 2020 11:25:05 -0400</lastBuildDate>
     
-	<atom:link href="https://sergiomora03.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sergiomorapardo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>analytics</title>
-      <link>https://sergiomora03.github.io/tags/analytics/</link>
+      <link>https://sergiomorapardo.github.io/tags/analytics/</link>
       <pubDate>Tue, 25 Aug 2020 11:25:05 -0400</pubDate>
       
-      <guid>https://sergiomora03.github.io/tags/analytics/</guid>
+      <guid>https://sergiomorapardo.github.io/tags/analytics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Banner</title>
-      <link>https://sergiomora03.github.io/tags/banner/</link>
+      <link>https://sergiomorapardo.github.io/tags/banner/</link>
       <pubDate>Tue, 25 Aug 2020 11:25:05 -0400</pubDate>
       
-      <guid>https://sergiomora03.github.io/tags/banner/</guid>
+      <guid>https://sergiomorapardo.github.io/tags/banner/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ellucian</title>
-      <link>https://sergiomora03.github.io/tags/ellucian/</link>
+      <link>https://sergiomorapardo.github.io/tags/ellucian/</link>
       <pubDate>Tue, 25 Aug 2020 11:25:05 -0400</pubDate>
       
-      <guid>https://sergiomora03.github.io/tags/ellucian/</guid>
+      <guid>https://sergiomorapardo.github.io/tags/ellucian/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PyPI</title>
-      <link>https://sergiomora03.github.io/tags/pypi/</link>
+      <link>https://sergiomorapardo.github.io/tags/pypi/</link>
       <pubDate>Tue, 25 Aug 2020 11:25:05 -0400</pubDate>
       
-      <guid>https://sergiomora03.github.io/tags/pypi/</guid>
+      <guid>https://sergiomorapardo.github.io/tags/pypi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mixture-mixed-models</title>
-      <link>https://sergiomora03.github.io/tags/mixture-mixed-models/</link>
+      <link>https://sergiomorapardo.github.io/tags/mixture-mixed-models/</link>
       <pubDate>Sun, 16 Aug 2020 11:15:58 -0400</pubDate>
       
-      <guid>https://sergiomora03.github.io/tags/mixture-mixed-models/</guid>
+      <guid>https://sergiomorapardo.github.io/tags/mixture-mixed-models/</guid>
       <description></description>
     </item>
     
     <item>
       <title>deep-learning</title>
-      <link>https://sergiomora03.github.io/tags/deep-learning/</link>
+      <link>https://sergiomorapardo.github.io/tags/deep-learning/</link>
       <pubDate>Sun, 28 Jun 2020 11:25:05 -0400</pubDate>
       
-      <guid>https://sergiomora03.github.io/tags/deep-learning/</guid>
+      <guid>https://sergiomorapardo.github.io/tags/deep-learning/</guid>
       <description></description>
     </item>
     

@@ -1,6 +1,6 @@
 ![counter](https://enh3txfdxq3wx3i.m.pipedream.net)
 
-### Hi there, I'm [Sergio!](https://sergiomora03.github.io) 👋
+### Hi there, I'm [Sergio!](https://sergiomorapardo.github.io) 👋
 
 - :bowtie: Currently, Lead Data Scientist at [Politécnico Grancolombiano](https://www.poli.edu.co/)
 - 🎓 MSc Analytics | BSc in Economics
@@ -16,6 +16,6 @@
 I am the main developer of [BannerQuery](https://pypi.org/project/BannerQuery/) project. Check it! ```pip install BannerQuery``` :boom: </br>
 I know a joke with Python, but I don´t think this is the right the environment. :laughing: ⚡
 
-<a href="https://github.com/sergiomora03/sergiomora03">
-  <img align="center" src="https://github-readme-stats.vercel.app/api?username=sergiomora03&show_icons=true&include_all_commits=true" alt="sergio's github stats" />
+<a href="https://github.com/sergiomorapardo/sergiomorapardo">
+  <img align="center" src="https://github-readme-stats.vercel.app/api?username=sergiomorapardo&show_icons=true&include_all_commits=true" alt="sergio's github stats" />
 </a>
