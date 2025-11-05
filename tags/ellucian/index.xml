@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ellucian on Sergio Mora</title>
-    <link>https://sergiomora03.github.io/tags/ellucian/</link>
+    <link>https://sergiomorapardo.github.io/tags/ellucian/</link>
     <description>Recent content in Ellucian on Sergio Mora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 25 Aug 2020 11:25:05 -0400</lastBuildDate>
     
-	<atom:link href="https://sergiomora03.github.io/tags/ellucian/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sergiomorapardo.github.io/tags/ellucian/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>BannerQuery my first library in PyPI</title>
-      <link>https://sergiomora03.github.io/post/bannerquery/</link>
+      <link>https://sergiomorapardo.github.io/post/bannerquery/</link>
       <pubDate>Tue, 25 Aug 2020 11:25:05 -0400</pubDate>
       
-      <guid>https://sergiomora03.github.io/post/bannerquery/</guid>
+      <guid>https://sergiomorapardo.github.io/post/bannerquery/</guid>
       <description>BannerQuery PyPI package: BannerQuery
 Package to consult databases from Banner by Ellucian.
 This library corresponds to part of the work of Sergio A. Mora Pardo
 👶 Our current version: 0.0.2
 Installation You can install BannerQuery with pip:
-pip install BannerQuery Documentation Documentation is available at http://sergiomora03.github.io/BannerQuery
-Tutorials are available at http://sergiomora03.github.io/BannerQuery/Tutorials.html
-Development Source code is available at https://github.com/sergiomora03/BannerQuery
+pip install BannerQuery Documentation Documentation is available at http://sergiomorapardo.github.io/BannerQuery
+Tutorials are available at http://sergiomorapardo.github.io/BannerQuery/Tutorials.html
+Development Source code is available at https://github.com/sergiomorapardo/BannerQuery
 https://packaging.python.org/tutorials/creating-documentation/</description>
     </item>
     
