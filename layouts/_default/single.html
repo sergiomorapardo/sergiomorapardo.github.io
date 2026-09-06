@@ -1,0 +1,29 @@
+{{ define "main" }}
+{{ $isES := eq site.Language.Lang "es" }}
+<article>
+  <header class="page-hero">
+    <div class="shell page-hero-grid">
+      <div>
+        <p class="eyebrow">{{ with .Params.category }}{{ . }}{{ else }}{{ with .Params.kind }}{{ . }}{{ end }}{{ end }}</p>
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Description }}</p>
+      </div>
+      {{ with .Params.metric }}
+      <div class="page-metric"><strong>{{ . }}</strong><span>{{ $.Params.metric_label }}</span></div>
+      {{ end }}
+    </div>
+  </header>
+  <div class="shell article-layout">
+    <aside class="article-aside" aria-label="{{ if $isES }}Detalles del proyecto{{ else }}Project details{{ end }}">
+      <dl>
+        {{ with .Params.role }}<div><dt>{{ if $isES }}Rol{{ else }}Role{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
+        {{ with .Params.scale }}<div><dt>{{ if $isES }}Escala{{ else }}Scale{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
+        {{ with .Params.period }}<div><dt>{{ if $isES }}Periodo{{ else }}Period{{ end }}</dt><dd>{{ . }}</dd></div>{{ end }}
+      </dl>
+      {{ with .Params.tags }}<div class="tag-list">{{ range . }}<span>{{ . }}</span>{{ end }}</div>{{ end }}
+    </aside>
+    <div class="prose">{{ .Content }}</div>
+  </div>
+</article>
+{{ end }}
+

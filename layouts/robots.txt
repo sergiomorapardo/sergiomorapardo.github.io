@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /cv/
+
+Sitemap: {{ "sitemap.xml" | absURL }}
+

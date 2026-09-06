@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="{{ site.Language.Lang }}" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="{{ site.Params.themeColor }}">
+    <meta name="color-scheme" content="light dark">
+
+    {{ $description := .Description | default site.Params.description }}
+    {{ $title := cond .IsHome site.Title (printf "%s | Sergio A. Mora Pardo" .Title) }}
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:site_name" content="Sergio A. Mora Pardo">
+    <meta property="og:image" content="{{ site.Params.socialImage | absURL }}">
+    <meta property="og:locale" content="{{ site.Language.Locale }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $title }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    <meta name="twitter:image" content="{{ site.Params.socialImage | absURL }}">
+
+    {{ range .AllTranslations }}
+      <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+    {{ end }}
+    <link rel="alternate" hreflang="x-default" href="{{ "/" | absURL }}">
+
+    <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+    {{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .RelPermalink }}">{{ end }}
+
+    {{ $styles := resources.Get "css/site.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+
+    {{ if .IsHome }}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sergio A. Mora Pardo",
+        "url": "{{ site.BaseURL }}",
+        "image": "{{ "images/profile/sergio-mora.jpg" | absURL }}",
+        "jobTitle": "AI/ML Technical Lead & Senior Data Scientist",
+        "sameAs": ["{{ site.Params.github }}", "{{ site.Params.linkedin }}"],
+        "alumniOf": [
+          {"@type": "CollegeOrUniversity", "name": "Universidad de los Andes"},
+          {"@type": "CollegeOrUniversity", "name": "Politécnico Grancolombiano"}
+        ],
+        "knowsAbout": ["Machine Learning", "Causal Inference", "Recommendation Systems", "Large Language Models", "MLOps", "Natural Language Processing"]
+      }
+    </script>
+    {{ end }}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{{ if eq site.Language.Lang "es" }}Ir al contenido{{ else }}Skip to content{{ end }}</a>
+    {{ partial "header.html" . }}
+    <main id="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+    {{ $script := resources.Get "js/site.js" | minify | fingerprint }}
+    <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
+  </body>
+</html>

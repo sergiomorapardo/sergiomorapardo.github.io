@@ -1,21 +1,45 @@
-# Código Fuente de mi Portafolio Personal
+# Sergio A. Mora Pardo — portfolio
 
-Este repositorio contiene todo el código fuente y los archivos de mi sitio web personal y portafolio, que está alojado usando GitHub Pages.
+Portafolio bilingüe (inglés/español) de Sergio A. Mora Pardo, enfocado en liderazgo técnico de AI/ML, sistemas de machine learning en producción, experimentación causal y docencia.
 
----
+El diseño toma como referencia la estructura narrativa de Adritian para Hugo, con una implementación propia, ligera y sin dependencias de tema.
 
-## 🚀 Sitio Web en Vivo
+## Desarrollo local
 
-Puedes ver la última versión del sitio desplegada en:
+Requiere Hugo `0.165.0` o posterior.
 
-### **[https://sergiomorapardo.github.io/](https://sergiomorapardo.github.io/)**
+```bash
+hugo server
+```
 
----
+El sitio queda disponible en `http://localhost:1313/` y se recarga al editar contenido, plantillas o estilos.
 
-## Propósito
+## Validación
 
-El propósito de este repositorio es únicamente alojar el código de mi portafolio.
+```bash
+hugo --gc --minify --cleanDestinationDir --destination /tmp/sergio-portfolio-build
+python3 scripts/check_site.py /tmp/sergio-portfolio-build
+```
 
-Si estás buscando mis proyectos, librerías o material de clase, por favor visita mi **[perfil principal de GitHub](https://github.com/sergiomorapardo)**.
+El verificador revisa rutas internas, fragmentos, idioma del documento, jerarquía principal, texto alternativo, directivas de indexación y la integridad básica del PDF.
 
-*(Opcional: Si quieres, puedes agregar una sección sobre las tecnologías que usaste para construirlo, por ejemplo: "Este sitio está construido con HTML, CSS y JavaScript puros" o "Este sitio usa el generador Jekyll".)*
+## Estructura
+
+- `content/`: páginas y casos de estudio en ambos idiomas.
+- `data/portfolio.yaml`: experiencia, métricas, capacidades, docencia y publicaciones.
+- `layouts/`: plantillas Hugo y componentes compartidos.
+- `assets/`: CSS y JavaScript procesados por Hugo Pipes.
+- `static/`: retrato, tarjetas sociales, imágenes históricas y CV público.
+- `.github/workflows/hugo.yaml`: compilación y despliegue en GitHub Pages.
+
+## CV público
+
+El documento se sirve en:
+
+`https://sergiomorapardo.github.io/cv/sergio-mora-cv.pdf`
+
+El archivo está excluido del rastreo en `robots.txt`, aunque cualquier persona con la URL puede abrirlo. Antes de publicar una nueva versión conviene revisar sus datos de contacto.
+
+## Despliegue
+
+Los cambios enviados a `master` activan el workflow de GitHub Pages. En la configuración del repositorio, la fuente de Pages debe estar establecida en **GitHub Actions**.

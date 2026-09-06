@@ -1,0 +1,169 @@
+{{ define "main" }}
+{{ $copy := index hugo.Data.portfolio site.Language.Lang }}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="shell hero-grid">
+    <div>
+      <p class="eyebrow">{{ $copy.hero.eyebrow }}</p>
+      <h1 id="hero-title">{{ $copy.hero.title }}</h1>
+      <p class="hero-role">{{ $copy.hero.role }}</p>
+      <p class="hero-description">{{ $copy.hero.description }}</p>
+      <div class="hero-actions">
+        <a class="button" href="#work">{{ $copy.hero.primary }} <span aria-hidden="true">↓</span></a>
+        <a class="button button-ghost" href="{{ site.Params.resume | relURL }}" target="_blank" rel="noopener">{{ $copy.hero.secondary }} <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-links" aria-label="Social profiles">
+        <a href="{{ site.Params.linkedin }}" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="{{ site.Params.github }}" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="portrait-wrap">
+      <div class="portrait-frame">
+        <img src="{{ "images/profile/sergio-mora.jpg" | relURL }}" alt="{{ if eq site.Language.Lang "es" }}Retrato de Sergio Mora{{ else }}Portrait of Sergio Mora{{ end }}" width="768" height="1024">
+      </div>
+      <p class="portrait-note"><span>{{ $copy.hero.portrait_note_label }}</span>{{ $copy.hero.portrait_note }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="impact" aria-label="{{ if eq site.Language.Lang "es" }}Impacto seleccionado{{ else }}Selected impact{{ end }}">
+  <div class="shell impact-grid">
+    {{ range $copy.impact }}
+      <div class="impact-item"><strong>{{ .value }}</strong><span>{{ .label }}</span></div>
+    {{ end }}
+  </div>
+</section>
+
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="shell">
+    <div class="section-heading">
+      <div><p class="eyebrow">{{ $copy.work.eyebrow }}</p><h2 id="work-title">{{ $copy.work.title }}</h2></div>
+      <p>{{ $copy.work.description }}</p>
+    </div>
+    <div class="work-grid">
+      {{ $pages := where site.RegularPages "Section" "work" }}
+      {{ range $index, $page := $pages.ByWeight }}
+        <a class="work-card" href="{{ $page.RelPermalink }}">
+          <div class="card-top">
+            <span class="card-number">0{{ add $index 1 }} / {{ $page.Params.category }}</span>
+            <h3>{{ $page.Title }}</h3>
+            <p>{{ $page.Description }}</p>
+          </div>
+          <div class="card-bottom">
+            <div class="metric"><strong>{{ $page.Params.metric }}</strong><span>{{ $page.Params.metric_label }}</span></div>
+            <span class="card-link">{{ $copy.work.link }} <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience" aria-labelledby="experience-title">
+  <div class="shell experience-layout">
+    <div class="experience-intro">
+      <p class="eyebrow">{{ $copy.experience.eyebrow }}</p>
+      <h2 id="experience-title">{{ $copy.experience.title }}</h2>
+      <p>{{ $copy.experience.description }}</p>
+    </div>
+    <div class="timeline">
+      {{ range $copy.experience.roles }}
+      <article class="role">
+        <div class="role-meta"><span>{{ .company }}</span><span>{{ .dates }}</span></div>
+        <h3>{{ .title }}</h3>
+        <p>{{ .summary }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="expertise" aria-labelledby="expertise-title">
+  <div class="shell">
+    <div class="section-heading">
+      <div><p class="eyebrow">{{ $copy.expertise.eyebrow }}</p><h2 id="expertise-title">{{ $copy.expertise.title }}</h2></div>
+      <p>{{ $copy.expertise.description }}</p>
+    </div>
+    <div class="expertise-grid">
+      {{ range $index, $item := $copy.expertise.items }}
+      <article class="expertise-item">
+        <span>0{{ add $index 1 }}</span>
+        <h3>{{ $item.title }}</h3>
+        <p>{{ $item.description }}</p>
+      </article>
+      {{ end }}
+    </div>
+    <div class="stack-line" aria-label="Technical stack">
+      {{ range $copy.expertise.stack }}<span>{{ . }}</span>{{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="teaching" aria-labelledby="teaching-title">
+  <div class="shell teaching-panel">
+    <div class="teaching-copy">
+      <p class="eyebrow">{{ $copy.teaching.eyebrow }}</p>
+      <h2 id="teaching-title">{{ $copy.teaching.title }}</h2>
+      <p>{{ $copy.teaching.description }}</p>
+    </div>
+    <div class="teaching-proof">
+      {{ range $copy.teaching.proofs }}<div class="proof-item"><strong>{{ .value }}</strong><span>{{ .label }}</span></div>{{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="publications" aria-labelledby="publications-title">
+  <div class="shell">
+    <div class="section-heading">
+      <div><p class="eyebrow">{{ $copy.publications.eyebrow }}</p><h2 id="publications-title">{{ $copy.publications.title }}</h2></div>
+      <p>{{ $copy.publications.description }}</p>
+    </div>
+    <div class="publication-list">
+      {{ range $copy.publications.items }}
+      <article class="publication">
+        <time>{{ .year }}</time>
+        <div><h3>{{ .title }}</h3><p>{{ .source }}</p></div>
+        <a href="{{ .url }}" target="_blank" rel="noopener">{{ $copy.publications.link }} ↗</a>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="archive" aria-labelledby="archive-title">
+  <div class="shell">
+    <div class="section-heading">
+      <div><p class="eyebrow">{{ $copy.archive.eyebrow }}</p><h2 id="archive-title">{{ $copy.archive.title }}</h2></div>
+      <p>{{ $copy.archive.description }}</p>
+    </div>
+    <div class="archive-grid">
+      {{ $projects := where site.RegularPages "Section" "projects" }}
+      {{ range $projects.ByWeight }}
+      <a class="archive-card" href="{{ .RelPermalink }}">
+        <div class="archive-image"><img src="{{ .Params.image | relURL }}" alt="" width="640" height="360"></div>
+        <div class="archive-copy"><small>{{ .Params.year }} · {{ .Params.kind }}</small><h3>{{ .Title }}</h3><p>{{ .Description }}</p></div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="shell about-grid">
+    <div>
+      <p class="eyebrow">{{ $copy.about.eyebrow }}</p>
+      <aside class="about-aside"><strong>{{ $copy.about.degree }}</strong><span>{{ $copy.about.university }}</span></aside>
+    </div>
+    <div class="about-copy" id="about-title"><p>{{ $copy.about.title }}</p><p>{{ $copy.about.paragraph | safeHTML }}</p></div>
+  </div>
+</section>
+
+<section class="section section-compact" id="contact" aria-labelledby="contact-title">
+  <div class="shell contact-panel">
+    <div class="contact-copy"><p class="eyebrow">{{ $copy.contact.eyebrow }}</p><h2 id="contact-title">{{ $copy.contact.title }}</h2><p>{{ $copy.contact.description }}</p></div>
+    <div class="contact-actions">
+      <a class="button" href="mailto:{{ site.Params.email }}">{{ $copy.contact.email }}</a>
+      <a class="button button-ghost" href="{{ site.Params.linkedin }}" target="_blank" rel="noopener">{{ $copy.contact.linkedin }}</a>
+    </div>
+  </div>
+</section>
+{{ end }}

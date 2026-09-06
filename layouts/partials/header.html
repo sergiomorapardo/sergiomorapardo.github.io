@@ -1,0 +1,36 @@
+{{ $isES := eq site.Language.Lang "es" }}
+{{ $home := site.Home.RelPermalink }}
+<header class="site-header" data-header>
+  <div class="shell header-inner">
+    <a class="brand" href="{{ $home }}" aria-label="Sergio Mora — {{ if $isES }}inicio{{ else }}home{{ end }}">
+      <span class="brand-mark" aria-hidden="true">SM</span>
+      <span class="brand-copy"><strong>Sergio Mora</strong><small>AI / ML</small></span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+      <span class="sr-only">{{ if $isES }}Abrir navegación{{ else }}Open navigation{{ end }}</span>
+      <span></span><span></span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="{{ if $isES }}Navegación principal{{ else }}Primary navigation{{ end }}" data-nav>
+      <a href="{{ $home }}#work">{{ if $isES }}Casos{{ else }}Work{{ end }}</a>
+      <a href="{{ $home }}#experience">{{ if $isES }}Experiencia{{ else }}Experience{{ end }}</a>
+      <a href="{{ $home }}#expertise">{{ if $isES }}Especialidad{{ else }}Expertise{{ end }}</a>
+      <a href="{{ $home }}#publications">{{ if $isES }}Publicaciones{{ else }}Publications{{ end }}</a>
+      <a href="{{ $home }}#contact">{{ if $isES }}Contacto{{ else }}Contact{{ end }}</a>
+    </nav>
+
+    <div class="header-actions">
+      {{ if eq site.Language.Lang "en" }}
+        <a class="language-link" href="{{ "/es/" | relURL }}" lang="es" hreflang="es">ES</a>
+      {{ else }}
+        <a class="language-link" href="{{ "/" | relURL }}" lang="en" hreflang="en">EN</a>
+      {{ end }}
+      <button class="theme-toggle" type="button" aria-label="{{ if $isES }}Cambiar tema{{ else }}Change theme{{ end }}" data-theme-toggle>
+        <span class="theme-icon" aria-hidden="true">◐</span>
+      </button>
+      <a class="button button-small" href="{{ site.Params.resume | relURL }}" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</header>
+

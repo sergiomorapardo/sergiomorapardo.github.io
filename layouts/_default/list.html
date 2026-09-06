@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ $isES := eq site.Language.Lang "es" }}
+<header class="page-hero">
+  <div class="shell">
+    <p class="eyebrow">{{ if $isES }}Archivo{{ else }}Archive{{ end }}</p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </div>
+</header>
+<section class="list-page">
+  <div class="shell list-grid">
+    {{ range .Pages.ByWeight }}
+      <a class="work-card" href="{{ .RelPermalink }}">
+        <div class="card-top"><span class="card-number">{{ .Params.category | default .Params.kind }}</span><h3>{{ .Title }}</h3><p>{{ .Description }}</p></div>
+        <span class="card-link">{{ if $isES }}Leer más{{ else }}Read more{{ end }} <span aria-hidden="true">↗</span></span>
+      </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+

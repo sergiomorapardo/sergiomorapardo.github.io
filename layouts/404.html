@@ -1,0 +1,10 @@
+{{ define "main" }}
+<section class="page-hero">
+  <div class="shell">
+    <p class="eyebrow">404</p>
+    <h1>{{ if eq site.Language.Lang "es" }}Esta página tomó otra ruta.{{ else }}This page took another path.{{ end }}</h1>
+    <p>{{ if eq site.Language.Lang "es" }}El contenido pudo moverse durante el rediseño. Vuelve al inicio para continuar.{{ else }}The content may have moved during the redesign. Return home to continue.{{ end }}</p>
+    <p><a class="button" href="{{ site.Home.RelPermalink }}">{{ if eq site.Language.Lang "es" }}Volver al inicio{{ else }}Return home{{ end }}</a></p>
+  </div>
+</section>
+{{ end }}

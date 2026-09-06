@@ -1,0 +1,57 @@
+baseURL = "https://sergiomorapardo.github.io/"
+title = "Sergio A. Mora Pardo"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+enableGitInfo = false
+canonifyURLs = false
+
+[pagination]
+  pagerSize = 9
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
+
+[params]
+  author = "Sergio A. Mora Pardo"
+  role = "AI/ML Technical Lead & Senior Data Scientist"
+  description = "AI/ML Technical Lead building production machine learning systems across recommendation, causal experimentation, and applied LLMs."
+  email = "sergiomora823@gmail.com"
+  github = "https://github.com/sergiomorapardo"
+  linkedin = "https://www.linkedin.com/in/sergiomorapardo/"
+  resume = "/cv/sergio-mora-cv.pdf"
+  socialImage = "/images/og-sergio-mora.png"
+  themeColor = "#0f7777"
+
+[languages]
+  [languages.en]
+    locale = "en-US"
+    label = "English"
+    weight = 1
+    title = "Sergio A. Mora Pardo | AI/ML Technical Lead"
+    [languages.en.params]
+      description = "AI/ML Technical Lead building production machine learning systems across recommendation, causal experimentation, and applied LLMs."
+
+  [languages.es]
+    locale = "es-CO"
+    label = "Español"
+    weight = 2
+    title = "Sergio A. Mora Pardo | Líder técnico de IA/ML"
+    [languages.es.params]
+      description = "Líder técnico de IA/ML especializado en sistemas de machine learning en producción, recomendación, experimentación causal y LLMs aplicados."
