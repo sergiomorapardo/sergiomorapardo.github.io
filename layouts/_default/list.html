@@ -1,44 +1,42 @@
 {{ define "main" }}
 {{ $isES := eq site.Language.Lang "es" }}
 {{ $copy := index hugo.Data.portfolio site.Language.Lang }}
-<header class="page-hero page-hero-clean">
-  <div class="shell">
-    <p class="eyebrow">{{ if $isES }}Portafolio{{ else }}Portfolio{{ end }}</p>
-    <h1>{{ .Title }}</h1>
-    <p>{{ .Description }}</p>
-  </div>
-</header>
 
 {{ if eq .Section "work" }}
-<section class="list-page">
-  <div class="shell work-grid">
-    {{ range $index, $page := .Pages.ByWeight }}
-      <a class="work-card" href="{{ $page.RelPermalink }}">
-        <div class="card-top">
-          <span class="card-number">0{{ add $index 1 }} / {{ $page.Params.category }}</span>
-          <h3>{{ $page.Title }}</h3>
-          <p>{{ $page.Description }}</p>
-        </div>
-        <div class="card-bottom">
-          <div class="metric"><strong>{{ $page.Params.metric }}</strong><span>{{ $page.Params.metric_label }}</span></div>
-          <span class="card-link">{{ $copy.work.link }} <span aria-hidden="true">↗</span></span>
-        </div>
-      </a>
-    {{ end }}
+<section class="viewport-page work-view" aria-labelledby="work-title">
+  <div class="shell viewport-shell">
+    <header class="compact-page-header">
+      <div><p class="eyebrow">{{ $copy.work.eyebrow }}</p><h1 id="work-title">{{ $copy.work.title }}</h1></div>
+      <p>{{ $copy.work.description }}</p>
+    </header>
+    <div class="work-grid compact-work-grid">
+      {{ range $index, $page := .Pages.ByWeight }}
+        <a class="work-card compact-work-card" href="{{ $page.RelPermalink }}">
+          <div class="card-top">
+            <span class="card-number">0{{ add $index 1 }} / {{ $page.Params.category }}</span>
+            <h3>{{ $page.Title }}</h3>
+            <p>{{ $page.Description }}</p>
+          </div>
+          <div class="card-bottom">
+            <div class="metric"><strong>{{ $page.Params.metric }}</strong><span>{{ $page.Params.metric_label }}</span></div>
+            <span class="card-link">{{ $copy.work.link }} <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      {{ end }}
+    </div>
   </div>
 </section>
 
 {{ else if eq .Section "experience" }}
-<section class="page-section">
-  <div class="shell experience-layout">
-    <div class="experience-intro">
-      <p class="eyebrow">{{ $copy.experience.eyebrow }}</p>
-      <h2>{{ $copy.experience.title }}</h2>
+<section class="viewport-page experience-view" aria-labelledby="experience-title">
+  <div class="shell viewport-shell">
+    <header class="compact-page-header">
+      <div><p class="eyebrow">{{ $copy.experience.eyebrow }}</p><h1 id="experience-title">{{ $copy.experience.title }}</h1></div>
       <p>{{ $copy.experience.description }}</p>
-    </div>
-    <div class="timeline">
+    </header>
+    <div class="experience-cards">
       {{ range $copy.experience.roles }}
-      <article class="role">
+      <article class="role-card">
         <div class="role-meta"><span>{{ .company }}</span><span>{{ .dates }}</span></div>
         <h3>{{ .title }}</h3>
         <p>{{ .summary }}</p>
@@ -49,13 +47,13 @@
 </section>
 
 {{ else if eq .Section "expertise" }}
-<section class="page-section">
-  <div class="shell">
-    <div class="section-heading section-heading-clean">
-      <div><p class="eyebrow">{{ $copy.expertise.eyebrow }}</p><h2>{{ $copy.expertise.title }}</h2></div>
+<section class="viewport-page expertise-view" aria-labelledby="expertise-title">
+  <div class="shell viewport-shell">
+    <header class="compact-page-header">
+      <div><p class="eyebrow">{{ $copy.expertise.eyebrow }}</p><h1 id="expertise-title">{{ $copy.expertise.title }}</h1></div>
       <p>{{ $copy.expertise.description }}</p>
-    </div>
-    <div class="expertise-grid">
+    </header>
+    <div class="expertise-grid compact-expertise-grid">
       {{ range $index, $item := $copy.expertise.items }}
       <article class="expertise-item">
         <span>0{{ add $index 1 }}</span>
@@ -71,40 +69,30 @@
 </section>
 
 {{ else if eq .Section "teaching" }}
-<section class="page-section teaching-page">
-  <div class="shell teaching-panel">
-    <div class="teaching-copy">
-      <p class="eyebrow">{{ $copy.teaching.eyebrow }}</p>
-      <h2>{{ $copy.teaching.title }}</h2>
+<section class="viewport-page teaching-view" aria-labelledby="teaching-title">
+  <div class="shell viewport-shell">
+    <header class="compact-page-header">
+      <div><p class="eyebrow">{{ $copy.teaching.eyebrow }}</p><h1 id="teaching-title">{{ $copy.teaching.title }}</h1></div>
       <p>{{ $copy.teaching.description }}</p>
+    </header>
+    <div class="proof-strip" aria-label="{{ if $isES }}Resumen docente{{ else }}Teaching summary{{ end }}">
+      {{ range $copy.teaching.proofs }}<div><strong>{{ .value }}</strong><span>{{ .label }}</span></div>{{ end }}
     </div>
-    <div class="teaching-proof">
-      {{ range $copy.teaching.proofs }}<div class="proof-item"><strong>{{ .value }}</strong><span>{{ .label }}</span></div>{{ end }}
-    </div>
-  </div>
-
-  <div class="shell course-section">
-    <div class="course-intro">
-      <p class="eyebrow">{{ if $isES }}Repositorios docentes{{ else }}Teaching repositories{{ end }}</p>
-      <h2>{{ if $isES }}Dos cursos públicos que sí vale la pena destacar.{{ else }}Two public courses worth highlighting.{{ end }}</h2>
-      <p>{{ $copy.teaching.repositories_intro }}</p>
-    </div>
-    <div class="course-grid">
+    <div class="course-grid compact-course-grid">
       {{ range $copy.teaching.courses }}
-      <article class="course-card">
+      <article class="course-card compact-course-card">
         <div class="course-summary">
           <p class="course-kicker">{{ $copy.teaching.repository_label }} · {{ .license }}</p>
           <h3>{{ .title }}</h3>
           <p>{{ .description }}</p>
           <div class="course-meta"><span>{{ .role }}</span><code>{{ .repository }}</code></div>
-          <div class="tag-list">{{ range .topics }}<span>{{ . }}</span>{{ end }}</div>
           <a class="button button-ghost" href="{{ .url }}" target="_blank" rel="noopener">{{ $copy.teaching.open_repository }} ↗</a>
         </div>
         <div class="course-materials">
           <h4>{{ $copy.teaching.curated_label }}</h4>
           <ul>
             {{ range .materials }}
-            <li><a href="{{ .url }}" target="_blank" rel="noopener"><span><strong>{{ .title }}</strong><small>{{ .note }}</small></span><b aria-hidden="true">↗</b></a></li>
+            <li><a href="{{ .url }}" target="_blank" rel="noopener"><strong>{{ .title }}</strong><b aria-hidden="true">↗</b></a></li>
             {{ end }}
           </ul>
         </div>
@@ -115,13 +103,13 @@
 </section>
 
 {{ else if eq .Section "publications" }}
-<section class="page-section">
-  <div class="shell">
-    <div class="section-heading section-heading-clean">
-      <div><p class="eyebrow">{{ $copy.publications.eyebrow }}</p><h2>{{ $copy.publications.title }}</h2></div>
+<section class="viewport-page publications-view" aria-labelledby="publications-title">
+  <div class="shell viewport-shell">
+    <header class="compact-page-header">
+      <div><p class="eyebrow">{{ $copy.publications.eyebrow }}</p><h1 id="publications-title">{{ $copy.publications.title }}</h1></div>
       <p>{{ $copy.publications.description }}</p>
-    </div>
-    <div class="publication-list">
+    </header>
+    <div class="publication-list compact-publication-list">
       {{ range $copy.publications.items }}
       <article class="publication">
         <time>{{ .year }}</time>
@@ -134,6 +122,9 @@
 </section>
 
 {{ else }}
+<header class="page-hero page-hero-clean">
+  <div class="shell"><p class="eyebrow">{{ if $isES }}Portafolio{{ else }}Portfolio{{ end }}</p><h1>{{ .Title }}</h1><p>{{ .Description }}</p></div>
+</header>
 <section class="list-page">
   <div class="shell list-grid">
     {{ range .Pages.ByWeight }}

@@ -1,5 +1,30 @@
 {{ define "main" }}
 {{ $isES := eq site.Language.Lang "es" }}
+{{ $copy := index hugo.Data.portfolio site.Language.Lang }}
+
+{{ if eq .TranslationKey "about" }}
+<section class="viewport-page profile-view" aria-labelledby="profile-title">
+  <div class="shell viewport-shell">
+    <header class="compact-page-header">
+      <div><p class="eyebrow">{{ $copy.about.eyebrow }}</p><h1 id="profile-title">{{ .Title }}</h1></div>
+      <p>{{ .Description }}</p>
+    </header>
+    <div class="prose profile-prose">{{ .Content }}</div>
+  </div>
+</section>
+
+{{ else if eq .TranslationKey "contact" }}
+<section class="viewport-page contact-view" aria-labelledby="contact-page-title">
+  <div class="shell viewport-shell">
+    <header class="compact-page-header">
+      <div><p class="eyebrow">{{ $copy.contact.eyebrow }}</p><h1 id="contact-page-title">{{ $copy.contact.title }}</h1></div>
+      <p>{{ .Description }}</p>
+    </header>
+    <div class="prose contact-prose">{{ .Content }}</div>
+  </div>
+</section>
+
+{{ else }}
 <article>
   <header class="page-hero">
     <div class="shell page-hero-grid">
@@ -26,4 +51,4 @@
   </div>
 </article>
 {{ end }}
-
+{{ end }}

@@ -54,7 +54,8 @@
     </script>
     {{ end }}
   </head>
-  <body>
+  {{ $isViewportRoute := or .IsHome .IsSection (eq .TranslationKey "about") (eq .TranslationKey "contact") }}
+  <body{{ if $isViewportRoute }} class="viewport-route"{{ end }}>
     <a class="skip-link" href="#main-content">{{ if eq site.Language.Lang "es" }}Ir al contenido{{ else }}Skip to content{{ end }}</a>
     {{ partial "header.html" . }}
     <main id="main-content">

@@ -118,8 +118,6 @@ en:
             note: "A practical time-series extension with clear applied value."
             url: "https://github.com/sergiomorapardo/StochasticAITechniquesClass/blob/main/Notebooks/L12_TimeSeries_MultiHorizont.ipynb"
     proofs:
-      - value: "P97"
-        label: "teaching evaluation — top 3%"
       - value: "5+"
         label: "graduate cohorts since 2023"
       - value: "~20"
@@ -286,8 +284,6 @@ es:
             note: "Una extensión práctica de series de tiempo con valor aplicado."
             url: "https://github.com/sergiomorapardo/StochasticAITechniquesClass/blob/main/Notebooks/L12_TimeSeries_MultiHorizont.ipynb"
     proofs:
-      - value: "P97"
-        label: "evaluación docente — top 3%"
       - value: "5+"
         label: "cohortes de posgrado desde 2023"
       - value: "~20"

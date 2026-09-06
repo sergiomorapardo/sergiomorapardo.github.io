@@ -27,6 +27,8 @@
         {{ $active := eq $.Section .section }}
         <a{{ if $active }} class="is-active" aria-current="page"{{ end }} href="{{ (printf "%s/%s/" $prefix .section) | relURL }}">{{ .label }}</a>
       {{ end }}
+      {{ $aboutActive := eq .TranslationKey "about" }}
+      <a{{ if $aboutActive }} class="is-active" aria-current="page"{{ end }} href="{{ (printf "%s/about/" $prefix) | relURL }}">{{ if $isES }}Perfil{{ else }}About{{ end }}</a>
       {{ $contactActive := eq .TranslationKey "contact" }}
       <a class="nav-contact{{ if $contactActive }} is-active{{ end }}"{{ if $contactActive }} aria-current="page"{{ end }} href="{{ (printf "%s/contact/" $prefix) | relURL }}">{{ if $isES }}Contacto{{ else }}Contact{{ end }}</a>
     </nav>
