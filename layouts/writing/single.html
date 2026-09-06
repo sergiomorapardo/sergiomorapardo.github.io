@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ $isES := eq site.Language.Lang "es" }}
+{{ $hubURL := cond $isES "/es/notas/" "/writing/" }}
+<article class="writing-article">
+  <header class="writing-article-hero">
+    <div class="shell">
+      <a class="article-back" href="{{ $hubURL | relURL }}">← {{ if $isES }}Todas las notas{{ else }}All writing{{ end }}</a>
+      <p class="eyebrow">{{ if $isES }}Nota técnica{{ else }}Technical note{{ end }} · {{ .Params.topic }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="article-deck">{{ .Description }}</p>
+      <div class="article-byline">
+        <span>Sergio A. Mora Pardo</span>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+        <span>{{ .ReadingTime }} {{ if $isES }}min de lectura{{ else }}min read{{ end }}</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="shell article-layout writing-article-layout">
+    <aside class="article-aside writing-aside" aria-label="{{ if $isES }}Metadatos de la nota{{ else }}Note metadata{{ end }}">
+      <dl>
+        <div><dt>{{ if $isES }}Fecha{{ else }}Date{{ end }}</dt><dd>{{ .Date | time.Format ":date_medium" }}</dd></div>
+        <div><dt>{{ if $isES }}Nivel{{ else }}Level{{ end }}</dt><dd>{{ .Params.level }}</dd></div>
+        <div><dt>{{ if $isES }}Tema{{ else }}Topic{{ end }}</dt><dd>{{ .Params.topic }}</dd></div>
+        <div><dt>{{ if $isES }}Repositorio{{ else }}Repository{{ end }}</dt><dd><a href="{{ .Params.repository_url }}" target="_blank" rel="noopener">{{ .Params.repository }} ↗</a></dd></div>
+        <div><dt>{{ if $isES }}Notebook fuente{{ else }}Source notebook{{ end }}</dt><dd><a href="{{ .Params.notebook_url }}" target="_blank" rel="noopener">{{ .Params.notebook }} ↗</a></dd></div>
+      </dl>
+    </aside>
+    <div>
+      <div class="prose writing-prose">{{ .Content }}</div>
+      <nav class="note-navigation" aria-label="{{ if $isES }}Navegación entre notas{{ else }}Note navigation{{ end }}">
+        {{ with .PrevInSection }}<a href="{{ .RelPermalink }}"><span>{{ if $isES }}Anterior{{ else }}Previous{{ end }}</span><strong>← {{ .Title }}</strong></a>{{ end }}
+        {{ with .NextInSection }}<a href="{{ .RelPermalink }}"><span>{{ if $isES }}Siguiente{{ else }}Next{{ end }}</span><strong>{{ .Title }} →</strong></a>{{ end }}
+      </nav>
+    </div>
+  </div>
+</article>
+{{ end }}

@@ -1,4 +1,4 @@
-# Sergio A. Mora Pardo — portfolio
+# Sergio A. Mora Pardo | portfolio
 
 Portafolio bilingüe (inglés/español) de Sergio A. Mora Pardo, enfocado en liderazgo técnico de AI/ML, sistemas de machine learning en producción, experimentación causal y docencia.
 

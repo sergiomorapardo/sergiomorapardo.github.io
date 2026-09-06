@@ -1,0 +1,59 @@
+{{ define "main" }}
+{{ $isES := eq site.Language.Lang "es" }}
+{{ $copy := index hugo.Data.portfolio site.Language.Lang }}
+{{ $rss := .OutputFormats.Get "RSS" }}
+<section class="viewport-page writing-view" aria-labelledby="writing-title">
+  <div class="shell viewport-shell">
+    <header class="compact-page-header writing-header">
+      <div>
+        <p class="eyebrow">{{ $copy.writing.eyebrow }}</p>
+        <h1 id="writing-title">{{ .Title }}</h1>
+      </div>
+      <div class="writing-intro">
+        <p>{{ $copy.writing.description }}</p>
+        {{ with $rss }}<a class="rss-link" href="{{ .RelPermalink }}" aria-label="{{ $copy.writing.rss_label }}">{{ $copy.writing.rss_label }} <span aria-hidden="true">◉</span></a>{{ end }}
+      </div>
+    </header>
+
+    <div class="writing-grid">
+      <section class="technical-notes" aria-labelledby="technical-notes-title">
+        <div class="writing-section-heading">
+          <div><p class="section-index">01</p><h2 id="technical-notes-title">{{ $copy.writing.notes_label }}</h2></div>
+          <p>{{ $copy.writing.notes_intro }}</p>
+        </div>
+        <div class="note-list">
+          {{ range .RegularPages.ByWeight }}
+          <article class="note-card">
+            <a href="{{ .RelPermalink }}">
+              <div class="note-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
+                <span>{{ .Params.level }}</span>
+              </div>
+              <h3>{{ .Title }}</h3>
+              <p>{{ .Description }}</p>
+              <div class="note-footer"><span>{{ .Params.topic }}</span><strong>{{ $copy.writing.read_note }} →</strong></div>
+            </a>
+          </article>
+          {{ end }}
+        </div>
+      </section>
+
+      <section class="research-archive" aria-labelledby="research-title">
+        <div class="writing-section-heading">
+          <div><p class="section-index">02</p><h2 id="research-title">{{ $copy.writing.research_label }}</h2></div>
+          <p>{{ $copy.writing.research_intro }}</p>
+        </div>
+        <div class="publication-list writing-publication-list">
+          {{ range $copy.writing.items }}
+          <article class="publication">
+            <time>{{ .year }}</time>
+            <div><h3>{{ .title }}</h3><p>{{ .source }}</p></div>
+            <a href="{{ .url }}" target="_blank" rel="noopener">{{ $copy.writing.source_link }} ↗</a>
+          </article>
+          {{ end }}
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+{{ end }}

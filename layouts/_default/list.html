@@ -112,25 +112,6 @@
   </div>
 </section>
 
-{{ else if eq .Section "publications" }}
-<section class="viewport-page publications-view" aria-labelledby="publications-title">
-  <div class="shell viewport-shell">
-    <header class="compact-page-header">
-      <div><p class="eyebrow">{{ $copy.publications.eyebrow }}</p><h1 id="publications-title">{{ $copy.publications.title }}</h1></div>
-      <p>{{ $copy.publications.description }}</p>
-    </header>
-    <div class="publication-list compact-publication-list">
-      {{ range $copy.publications.items }}
-      <article class="publication">
-        <time>{{ .year }}</time>
-        <div><h3>{{ .title }}</h3><p>{{ .source }}</p></div>
-        <a href="{{ .url }}" target="_blank" rel="noopener">{{ $copy.publications.link }} ↗</a>
-      </article>
-      {{ end }}
-    </div>
-  </div>
-</section>
-
 {{ else }}
 <header class="page-hero page-hero-clean">
   <div class="shell"><p class="eyebrow">{{ if $isES }}Portafolio{{ else }}Portfolio{{ end }}</p><h1>{{ .Title }}</h1><p>{{ .Description }}</p></div>

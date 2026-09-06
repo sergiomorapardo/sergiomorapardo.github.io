@@ -2140,6 +2140,367 @@ textarea {
   margin-top: 0.2rem;
 }
 
+/* Editorial hub */
+.writing-header {
+  align-items: center;
+}
+
+.writing-intro > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(0.76rem, 1.05vw, 0.9rem);
+  line-height: 1.5;
+}
+
+.rss-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+  color: var(--brand-strong);
+  font-size: 0.72rem;
+  font-weight: 780;
+  text-decoration: none;
+}
+
+.rss-link span {
+  color: var(--signal);
+  font-size: 0.65rem;
+}
+
+.writing-grid {
+  display: grid;
+  flex: 1 1 auto;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.technical-notes,
+.research-archive {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.writing-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 0.9fr);
+  align-items: end;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.writing-section-heading > div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+}
+
+.writing-section-heading h2,
+.writing-section-heading p,
+.section-index {
+  margin: 0;
+}
+
+.writing-section-heading h2 {
+  font-size: clamp(0.9rem, 1.25vw, 1.05rem);
+  letter-spacing: -0.025em;
+}
+
+.writing-section-heading > p {
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.4;
+}
+
+.section-index {
+  color: var(--brand-strong);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.62rem;
+  font-weight: 760;
+}
+
+.note-list {
+  display: grid;
+  flex: 1 1 auto;
+  min-height: 0;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.note-card {
+  min-height: 0;
+}
+
+.note-card > a {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+  padding: clamp(0.85rem, 1.6vh, 1.15rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  text-decoration: none;
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+}
+
+.note-card > a:hover {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--surface) 78%, var(--brand-soft));
+  transform: translateY(-2px);
+}
+
+.note-meta,
+.note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.note-meta {
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+.note-card h3 {
+  margin: clamp(0.45rem, 1vh, 0.7rem) 0 0.35rem;
+  font-size: clamp(1rem, 1.55vw, 1.35rem);
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.note-card > a > p {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: clamp(0.66rem, 0.82vw, 0.76rem);
+  line-height: 1.42;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.note-footer {
+  margin-top: auto;
+  padding-top: 0.65rem;
+  color: var(--brand-strong);
+  font-size: 0.64rem;
+}
+
+.note-footer strong {
+  font-size: 0.65rem;
+}
+
+.writing-publication-list {
+  display: grid;
+  flex: 1 1 auto;
+  min-height: 0;
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+
+.writing-publication-list .publication {
+  min-height: 0;
+  grid-template-columns: 3.2rem 1fr auto;
+  align-items: center;
+  gap: 0.7rem;
+  padding: clamp(0.45rem, 1.1vh, 0.75rem) 0;
+}
+
+.writing-publication-list .publication h3 {
+  font-size: clamp(0.68rem, 0.82vw, 0.78rem);
+  line-height: 1.3;
+}
+
+.writing-publication-list .publication p {
+  display: -webkit-box;
+  margin-top: 0.15rem;
+  overflow: hidden;
+  font-size: 0.61rem;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.writing-publication-list .publication a {
+  font-size: 0.62rem;
+}
+
+.writing-article-hero {
+  padding: clamp(3rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--brand-soft) 70%, transparent), transparent 62%);
+}
+
+.article-back {
+  display: inline-block;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+  color: var(--brand-strong);
+  font-size: 0.74rem;
+  font-weight: 780;
+  text-decoration: none;
+}
+
+.writing-article-hero .eyebrow {
+  margin-bottom: 0.9rem;
+}
+
+.writing-article-hero h1 {
+  max-width: 920px;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.7rem, 6vw, 5.6rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.article-deck {
+  max-width: 760px;
+  margin: 1.35rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
+}
+
+.article-byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  margin-top: 1.4rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.article-byline span + time::before,
+.article-byline time + span::before {
+  margin-right: 1.2rem;
+  color: var(--line);
+  content: "/";
+}
+
+.writing-article-layout {
+  grid-template-columns: minmax(190px, 0.34fr) minmax(0, 1fr);
+}
+
+.writing-article-layout > * {
+  min-width: 0;
+}
+
+.writing-aside {
+  position: sticky;
+  top: calc(var(--header-height) + 1.5rem);
+}
+
+.writing-aside a {
+  color: var(--brand-strong);
+  text-decoration: none;
+}
+
+.writing-aside dd {
+  overflow-wrap: anywhere;
+}
+
+.writing-prose {
+  max-width: 790px;
+}
+
+.writing-prose > p:first-child {
+  color: var(--ink);
+  font-size: 1.18rem;
+  line-height: 1.65;
+}
+
+.writing-prose pre {
+  max-width: 100%;
+  margin: 1.5rem 0;
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #102322;
+  color: #e8f4f0;
+  overflow-x: auto;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.writing-prose pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.writing-prose table {
+  width: 100%;
+  margin: 1.7rem 0;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.writing-prose th,
+.writing-prose td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.writing-prose th {
+  color: var(--ink);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.writing-prose td {
+  color: var(--muted);
+}
+
+.note-navigation {
+  display: grid;
+  max-width: 790px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.note-navigation a {
+  display: flex;
+  min-height: 6.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  text-decoration: none;
+}
+
+.note-navigation a:only-child:last-child {
+  grid-column: 2;
+}
+
+.note-navigation span {
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 760;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.note-navigation strong {
+  color: var(--brand-strong);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
 .profile-prose {
   max-width: none;
   flex: 1 1 auto;
@@ -2354,9 +2715,27 @@ textarea {
   .experience-cards,
   .compact-expertise-grid,
   .compact-course-grid,
-  .compact-publication-list {
+  .compact-publication-list,
+  .writing-publication-list {
     flex: none;
     grid-template-rows: auto;
+  }
+
+  .writing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .note-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+  }
+
+  .note-card > a {
+    min-height: 13rem;
+  }
+
+  .writing-aside {
+    position: static;
   }
 
   .compact-work-card {
@@ -2537,6 +2916,38 @@ textarea {
 
   .article-aside dl {
     grid-template-columns: 1fr;
+  }
+
+  .writing-section-heading,
+  .note-list,
+  .note-navigation {
+    grid-template-columns: 1fr;
+  }
+
+  .note-navigation a:only-child:last-child {
+    grid-column: 1;
+  }
+
+  .writing-publication-list .publication {
+    grid-template-columns: 3.2rem 1fr;
+  }
+
+  .writing-publication-list .publication a {
+    grid-column: 2;
+  }
+
+  .article-byline span + time::before,
+  .article-byline time + span::before {
+    margin-right: 0.45rem;
+  }
+
+  .writing-prose {
+    overflow-wrap: anywhere;
+  }
+
+  .writing-prose table {
+    display: block;
+    overflow-x: auto;
   }
 
   .system-flow {

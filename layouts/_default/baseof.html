@@ -23,6 +23,10 @@
     <meta name="twitter:title" content="{{ $title }}">
     <meta name="twitter:description" content="{{ $description }}">
     <meta name="twitter:image" content="{{ site.Params.socialImage | absURL }}">
+    {{ if and .IsPage (eq .Section "writing") }}
+    <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+    {{ with .Params.topic }}<meta property="article:section" content="{{ . }}">{{ end }}
+    {{ end }}
 
     {{ range .AllTranslations }}
       <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">

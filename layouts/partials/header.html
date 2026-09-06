@@ -21,11 +21,12 @@
         (dict "section" "experience" "label" (cond $isES "Experiencia" "Experience"))
         (dict "section" "expertise" "label" (cond $isES "Especialidad" "Expertise"))
         (dict "section" "teaching" "label" (cond $isES "Docencia" "Teaching"))
-        (dict "section" "publications" "label" (cond $isES "Publicaciones" "Publications"))
+        (dict "section" "writing" "label" (cond $isES "Notas" "Writing"))
       }}
       {{ range $items }}
         {{ $active := eq $.Section .section }}
-        <a{{ if $active }} class="is-active" aria-current="page"{{ end }} href="{{ (printf "%s/%s/" $prefix .section) | relURL }}">{{ .label }}</a>
+        {{ $itemURL := cond (and $isES (eq .section "writing")) "/es/notas/" (printf "%s/%s/" $prefix .section) }}
+        <a{{ if $active }} class="is-active" aria-current="page"{{ end }} href="{{ $itemURL | relURL }}">{{ .label }}</a>
       {{ end }}
       <a href="{{ (printf "%s/#about" $prefix) | relURL }}">{{ if $isES }}Perfil{{ else }}About{{ end }}</a>
       {{ $contactActive := eq .TranslationKey "contact" }}
