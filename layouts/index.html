@@ -4,27 +4,34 @@
 {{ $prefix := cond $isES "/es" "" }}
 {{ $workURL := (printf "%s/work/" $prefix) | relURL }}
 <section class="hero home-viewport" aria-labelledby="hero-title">
-  <div class="shell hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">{{ $copy.hero.eyebrow }}</p>
-      <h1 id="hero-title">{{ $copy.hero.title }}</h1>
-      <p class="hero-role">{{ $copy.hero.role }}</p>
-      <p class="hero-description">{{ $copy.hero.description }}</p>
-      <div class="hero-actions">
-        <a class="button" href="{{ $workURL }}">{{ $copy.hero.primary }} <span aria-hidden="true">↗</span></a>
-        <a class="button button-ghost" href="{{ site.Params.resume | relURL }}" target="_blank" rel="noopener">{{ $copy.hero.secondary }} <span aria-hidden="true">↗</span></a>
+  <div class="shell home-shell">
+    <div class="hero-grid home-main">
+      <div class="hero-copy">
+        <p class="eyebrow">{{ $copy.hero.eyebrow }}</p>
+        <h1 id="hero-title">{{ $copy.hero.title }}</h1>
+        <p class="hero-role">{{ $copy.hero.role }}</p>
+        <p class="hero-description">{{ $copy.hero.description }}</p>
+        <div class="hero-actions">
+          <a class="button" href="{{ $workURL }}">{{ $copy.hero.primary }} <span aria-hidden="true">↗</span></a>
+          <a class="button button-ghost" href="{{ site.Params.resume | relURL }}" target="_blank" rel="noopener">{{ $copy.hero.secondary }} <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="portrait-wrap">
+        <div class="portrait-frame">
+          <img src="{{ "images/profile/sergio-mora.jpg" | relURL }}" alt="{{ if $isES }}Retrato de Sergio Mora{{ else }}Portrait of Sergio Mora{{ end }}" width="768" height="1024">
+        </div>
+      </div>
+    </div>
+    <div class="home-overview" id="about">
+      <div class="home-about">
+        <p class="eyebrow">{{ $copy.about.eyebrow }}</p>
+        <p>{{ $copy.about.paragraph | safeHTML }}</p>
       </div>
       <div class="hero-impact" aria-label="{{ if $isES }}Impacto seleccionado{{ else }}Selected impact{{ end }}">
         {{ range $copy.impact }}
           <div><strong>{{ .value }}</strong><span>{{ .label }}</span></div>
         {{ end }}
       </div>
-    </div>
-    <div class="portrait-wrap">
-      <div class="portrait-frame">
-        <img src="{{ "images/profile/sergio-mora.jpg" | relURL }}" alt="{{ if $isES }}Retrato de Sergio Mora{{ else }}Portrait of Sergio Mora{{ end }}" width="768" height="1024">
-      </div>
-      <p class="portrait-note"><span>{{ $copy.hero.portrait_note_label }}</span>{{ $copy.hero.portrait_note }}</p>
     </div>
   </div>
 </section>

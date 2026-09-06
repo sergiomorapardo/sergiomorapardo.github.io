@@ -1,6 +1,6 @@
 ---
 title: "Personalized Product Discovery & Ranking"
-description: "Replacing a static affiliate landing page with a continuous, personalized discovery feed — measured through a multi-country controlled experiment."
+description: "Replacing a static affiliate landing page with a continuous, personalized discovery feed, measured through a multi-country controlled experiment."
 translationKey: "personalized-discovery"
 weight: 1
 category: "Ranking"
@@ -31,7 +31,7 @@ I led the ML design for ranking and discovery, partnering across product and eng
 
 ## Experiment design
 
-The new experience was evaluated against the static control in an A/B test spanning approximately **5.2 million sessions in four countries**. Evaluation covered several stages of the funnel — including clicks, intent, shares, and the conversion of newly generated affiliate links.
+The new experience was evaluated against the static control in an A/B test spanning approximately **5.2 million sessions in four countries**. Evaluation covered several stages of the funnel, including clicks, intent, shares, and the conversion of newly generated affiliate links.
 
 ## Outcome
 
@@ -42,4 +42,3 @@ The personalized feed increased engagement by **20–26% across the funnel** and
 ## What this work reinforced
 
 A ranking system is only useful when its objective, attribution, serving path, and experimental unit agree. The measurement architecture was as important as the model itself.
-

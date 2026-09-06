@@ -12,5 +12,3 @@ Estoy abierto a conversar sobre liderazgo técnico de IA/ML, sistemas de recomen
 - [Explorar GitHub](https://github.com/sergiomorapardo)
 - [Abrir el currículum en PDF](/cv/sergio-mora-cv.pdf)
 
-El currículum público cuenta con una URL estable para compartirlo directamente. Utiliza correo o LinkedIn en lugar de volver a publicar el número telefónico personal.
-

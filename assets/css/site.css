@@ -1510,7 +1510,7 @@ textarea {
 .home-viewport {
   height: calc(100svh - var(--header-height));
   min-height: 0;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .viewport-page {
@@ -1560,9 +1560,21 @@ textarea {
 }
 
 .home-viewport .hero-grid {
-  height: 100%;
+  height: auto;
   grid-template-columns: minmax(0, 1.38fr) minmax(230px, 0.62fr);
   gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.home-shell {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.home-main {
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .home-viewport .hero-copy {
@@ -1603,11 +1615,69 @@ textarea {
   width: min(320px, 36vw, 42svh);
 }
 
+.home-viewport .portrait-frame {
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.home-viewport .portrait-frame::before {
+  display: none;
+}
+
+.home-viewport .portrait-frame img {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  object-position: center 42%;
+}
+
+.home-overview {
+  display: grid;
+  flex: 0 0 auto;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.65fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  padding-top: clamp(0.75rem, 1.8vh, 1.2rem);
+  border-top: 1px solid var(--line);
+}
+
+.home-about {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.8rem;
+}
+
+.home-about .eyebrow {
+  margin: 0;
+  font-size: 0.62rem;
+}
+
+.home-about .eyebrow::before {
+  display: none;
+}
+
+.home-about > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(0.65rem, 0.8vw, 0.73rem);
+  line-height: 1.45;
+}
+
+.home-about em {
+  color: var(--ink);
+  font-style: normal;
+  font-weight: 680;
+}
+
 .hero-impact {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.7rem;
-  margin-top: clamp(1rem, 2.6vh, 1.8rem);
+  margin-top: 0;
 }
 
 .hero-impact > div {
@@ -1704,6 +1774,48 @@ textarea {
   gap: 0.7rem;
 }
 
+.compact-timeline {
+  display: grid;
+  flex: 1 1 auto;
+  min-height: 0;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+.compact-timeline::before {
+  bottom: 0.4rem;
+}
+
+.compact-timeline .role {
+  display: grid;
+  min-height: 0;
+  grid-template-columns: minmax(270px, 0.72fr) minmax(0, 1.28fr);
+  grid-template-rows: auto 1fr;
+  column-gap: clamp(2rem, 5vw, 5rem);
+  padding: 0 0 clamp(0.35rem, 1vh, 0.65rem) 2rem;
+}
+
+.compact-timeline .role-meta {
+  grid-column: 1;
+  grid-row: 1;
+  margin-bottom: 0.25rem;
+}
+
+.compact-timeline .role h3 {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: clamp(0.9rem, 1.25vw, 1.08rem);
+  line-height: 1.2;
+}
+
+.compact-timeline .role p {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  margin: 0;
+  font-size: clamp(0.68rem, 0.86vw, 0.78rem);
+  line-height: 1.42;
+}
+
 .role-card {
   grid-column: span 2;
   min-height: 0;
@@ -1745,6 +1857,42 @@ textarea {
 
 .compact-expertise-grid {
   grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.expertise-list {
+  display: grid;
+  flex: 1 1 auto;
+  min-height: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: 1fr;
+  align-content: stretch;
+  column-gap: clamp(2.5rem, 7vw, 6rem);
+}
+
+.expertise-row {
+  display: block;
+  padding: clamp(0.65rem, 1.6vh, 1rem) 0;
+  border-top: 1px solid var(--line);
+}
+
+.expertise-row > span {
+  color: var(--brand-strong);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.65rem;
+}
+
+.expertise-row h3 {
+  margin: clamp(1.1rem, 3vh, 2rem) 0 0.55rem;
+  font-size: clamp(0.95rem, 1.25vw, 1.08rem);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.expertise-row p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(0.68rem, 0.85vw, 0.78rem);
+  line-height: 1.4;
 }
 
 .compact-expertise-grid .expertise-item {
@@ -2085,6 +2233,15 @@ textarea {
     height: auto;
   }
 
+  .home-shell {
+    height: auto;
+  }
+
+  .home-overview {
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+  }
+
   .compact-page-header {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -2106,6 +2263,21 @@ textarea {
 
   .experience-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .compact-timeline {
+    display: block;
+  }
+
+  .compact-timeline .role {
+    display: block;
+    padding: 0 0 2.2rem 2rem;
+  }
+
+  .compact-timeline .role p {
+    display: block;
+    margin-top: 0.55rem;
+    overflow: visible;
   }
 
   .role-card,
@@ -2171,6 +2343,10 @@ textarea {
   .experience-cards,
   .proof-strip,
   .contact-prose ul {
+    grid-template-columns: 1fr;
+  }
+
+  .expertise-list {
     grid-template-columns: 1fr;
   }
 

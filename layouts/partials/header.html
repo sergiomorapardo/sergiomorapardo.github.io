@@ -5,7 +5,7 @@
 {{ range .Translations }}{{ $translationURL = .RelPermalink }}{{ end }}
 <header class="site-header" data-header>
   <div class="shell header-inner">
-    <a class="brand" href="{{ $home }}" aria-label="Sergio Mora — {{ if $isES }}inicio{{ else }}home{{ end }}">
+    <a class="brand" href="{{ $home }}" aria-label="Sergio Mora, {{ if $isES }}inicio{{ else }}home{{ end }}">
       <span class="brand-mark" aria-hidden="true">SM</span>
       <span class="brand-copy"><strong>Sergio Mora</strong><small>AI / ML</small></span>
     </a>
@@ -27,8 +27,7 @@
         {{ $active := eq $.Section .section }}
         <a{{ if $active }} class="is-active" aria-current="page"{{ end }} href="{{ (printf "%s/%s/" $prefix .section) | relURL }}">{{ .label }}</a>
       {{ end }}
-      {{ $aboutActive := eq .TranslationKey "about" }}
-      <a{{ if $aboutActive }} class="is-active" aria-current="page"{{ end }} href="{{ (printf "%s/about/" $prefix) | relURL }}">{{ if $isES }}Perfil{{ else }}About{{ end }}</a>
+      <a href="{{ (printf "%s/#about" $prefix) | relURL }}">{{ if $isES }}Perfil{{ else }}About{{ end }}</a>
       {{ $contactActive := eq .TranslationKey "contact" }}
       <a class="nav-contact{{ if $contactActive }} is-active{{ end }}"{{ if $contactActive }} aria-current="page"{{ end }} href="{{ (printf "%s/contact/" $prefix) | relURL }}">{{ if $isES }}Contacto{{ else }}Contact{{ end }}</a>
     </nav>

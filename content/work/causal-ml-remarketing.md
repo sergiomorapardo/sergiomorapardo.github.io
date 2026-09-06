@@ -1,6 +1,6 @@
 ---
 title: "Causal ML Remarketing Engine"
-description: "An end-to-end decision engine for audience, timing, and content — evaluated against persistent holdouts across eight countries."
+description: "An end-to-end decision engine for audience, timing, and content, evaluated against persistent holdouts across eight countries."
 translationKey: "causal-remarketing"
 weight: 2
 category: "Causal ML"
@@ -14,7 +14,7 @@ tags: ["Uplift modeling", "Propensity", "Experimentation", "Recommendation"]
 
 ## The problem
 
-High-volume remarketing can optimize clicks while still sending messages to users who would have purchased anyway. The product needed to decide **who** should receive a message, **when** it should arrive, and **what** to recommend — while measuring true incremental impact rather than correlation.
+High-volume remarketing can optimize clicks while still sending messages to users who would have purchased anyway. The product needed to decide **who** should receive a message, **when** it should arrive, and **what** to recommend while measuring true incremental impact rather than correlation.
 
 ## My role
 
@@ -43,4 +43,3 @@ The ML optimizations drove approximately **US$1 million per month in statistical
 ## What this work reinforced
 
 For intervention systems, prediction accuracy is not the business objective. The key question is whether the decision changes an outcome that would not otherwise have happened.
-

@@ -34,9 +34,9 @@
       <div><p class="eyebrow">{{ $copy.experience.eyebrow }}</p><h1 id="experience-title">{{ $copy.experience.title }}</h1></div>
       <p>{{ $copy.experience.description }}</p>
     </header>
-    <div class="experience-cards">
+    <div class="timeline compact-timeline">
       {{ range $copy.experience.roles }}
-      <article class="role-card">
+      <article class="role">
         <div class="role-meta"><span>{{ .company }}</span><span>{{ .dates }}</span></div>
         <h3>{{ .title }}</h3>
         <p>{{ .summary }}</p>
@@ -53,12 +53,11 @@
       <div><p class="eyebrow">{{ $copy.expertise.eyebrow }}</p><h1 id="expertise-title">{{ $copy.expertise.title }}</h1></div>
       <p>{{ $copy.expertise.description }}</p>
     </header>
-    <div class="expertise-grid compact-expertise-grid">
+    <div class="expertise-list">
       {{ range $index, $item := $copy.expertise.items }}
-      <article class="expertise-item">
+      <article class="expertise-row">
         <span>0{{ add $index 1 }}</span>
-        <h3>{{ $item.title }}</h3>
-        <p>{{ $item.description }}</p>
+        <div><h3>{{ $item.title }}</h3><p>{{ $item.description }}</p></div>
       </article>
       {{ end }}
     </div>

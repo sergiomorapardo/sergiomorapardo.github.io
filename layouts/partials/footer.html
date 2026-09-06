@@ -7,7 +7,7 @@
       <p>{{ if $isES }}Sistemas de ML en producción, experimentación causal y productos de IA aplicados.{{ else }}Production ML systems, causal experimentation, and applied AI products.{{ end }}</p>
     </div>
     <div class="footer-links" aria-label="{{ if $isES }}Enlaces sociales{{ else }}Social links{{ end }}">
-      <a href="{{ (printf "%s/about/" $prefix) | relURL }}">{{ if $isES }}Sobre mí{{ else }}About{{ end }}</a>
+      <a href="{{ (printf "%s/#about" $prefix) | relURL }}">{{ if $isES }}Sobre mí{{ else }}About{{ end }}</a>
       <a href="{{ (printf "%s/contact/" $prefix) | relURL }}">{{ if $isES }}Contacto{{ else }}Contact{{ end }}</a>
       <a href="{{ site.Params.github }}" target="_blank" rel="noopener">GitHub</a>
       <a href="{{ site.Params.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
