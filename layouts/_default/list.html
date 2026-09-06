@@ -30,18 +30,21 @@
 {{ else if eq .Section "experience" }}
 <section class="viewport-page experience-view" aria-labelledby="experience-title">
   <div class="shell viewport-shell">
-    <header class="compact-page-header">
-      <div><p class="eyebrow">{{ $copy.experience.eyebrow }}</p><h1 id="experience-title">{{ $copy.experience.title }}</h1></div>
-      <p>{{ $copy.experience.description }}</p>
-    </header>
-    <div class="timeline compact-timeline">
-      {{ range $copy.experience.roles }}
-      <article class="role">
-        <div class="role-meta"><span>{{ .company }}</span><span>{{ .dates }}</span></div>
-        <h3>{{ .title }}</h3>
-        <p>{{ .summary }}</p>
-      </article>
-      {{ end }}
+    <div class="experience-stage">
+      <header class="experience-summary">
+        <p class="eyebrow">{{ $copy.experience.eyebrow }}</p>
+        <h1 id="experience-title">{{ $copy.experience.title }}</h1>
+        <p>{{ $copy.experience.description }}</p>
+      </header>
+      <div class="timeline compact-timeline">
+        {{ range $copy.experience.roles }}
+        <article class="role">
+          <div class="role-meta"><span>{{ .company }}</span><span>{{ .dates }}</span></div>
+          <h3>{{ .title }}</h3>
+          <p>{{ .summary }}</p>
+        </article>
+        {{ end }}
+      </div>
     </div>
   </div>
 </section>

@@ -1778,7 +1778,38 @@ textarea {
   display: grid;
   flex: 1 1 auto;
   min-height: 0;
-  grid-template-rows: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+}
+
+.experience-stage {
+  display: grid;
+  height: 100%;
+  min-height: 0;
+  grid-template-columns: minmax(250px, 0.62fr) minmax(0, 1.38fr);
+  gap: clamp(3rem, 8vw, 7rem);
+}
+
+.experience-summary {
+  align-self: center;
+}
+
+.experience-summary .eyebrow {
+  margin-bottom: 0.65rem;
+}
+
+.experience-summary h1 {
+  margin: 0;
+  font-size: clamp(2.1rem, 4vw, 4rem);
+  font-weight: 760;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.experience-summary > p:last-child {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: clamp(0.76rem, 1vw, 0.9rem);
+  line-height: 1.5;
 }
 
 .compact-timeline::before {
@@ -1788,7 +1819,7 @@ textarea {
 .compact-timeline .role {
   display: grid;
   min-height: 0;
-  grid-template-columns: minmax(270px, 0.72fr) minmax(0, 1.28fr);
+  grid-template-columns: minmax(205px, 0.7fr) minmax(0, 1.3fr);
   grid-template-rows: auto 1fr;
   column-gap: clamp(2rem, 5vw, 5rem);
   padding: 0 0 clamp(0.35rem, 1vh, 0.65rem) 2rem;
@@ -2267,6 +2298,15 @@ textarea {
 
   .compact-timeline {
     display: block;
+  }
+
+  .experience-stage {
+    display: block;
+    height: auto;
+  }
+
+  .experience-summary {
+    margin-bottom: 2rem;
   }
 
   .compact-timeline .role {
