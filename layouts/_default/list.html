@@ -61,6 +61,14 @@
       <article class="expertise-row">
         <span>0{{ add $index 1 }}</span>
         <div><h3>{{ $item.title }}</h3><p>{{ $item.description }}</p></div>
+        <ul class="capability-list">
+          {{ range $item.capabilities }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <div class="expertise-evidence">
+          <strong>{{ $item.proof_value }}</strong>
+          <span>{{ $item.proof_label }}</span>
+        </div>
+        <a class="expertise-link" href="{{ $item.case_url | relURL }}">{{ $item.case_title }} <span aria-hidden="true">↗</span></a>
       </article>
       {{ end }}
     </div>

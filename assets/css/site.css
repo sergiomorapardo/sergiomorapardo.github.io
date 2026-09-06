@@ -1901,9 +1901,16 @@ textarea {
 }
 
 .expertise-row {
-  display: block;
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
   padding: clamp(0.65rem, 1.6vh, 1rem) 0;
   border-top: 1px solid var(--line);
+}
+
+.expertise-row + .expertise-row {
+  padding-left: clamp(1rem, 2.5vw, 2rem);
+  border-left: 1px solid var(--line);
 }
 
 .expertise-row > span {
@@ -1924,6 +1931,70 @@ textarea {
   color: var(--muted);
   font-size: clamp(0.68rem, 0.85vw, 0.78rem);
   line-height: 1.4;
+}
+
+.capability-list {
+  display: grid;
+  gap: clamp(0.4rem, 1vh, 0.65rem);
+  margin: clamp(1rem, 2.6vh, 1.7rem) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.capability-list li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--muted);
+  font-size: clamp(0.68rem, 0.82vw, 0.76rem);
+  line-height: 1.35;
+}
+
+.capability-list li::before {
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 0.38rem;
+  height: 1px;
+  background: var(--brand);
+  content: "";
+}
+
+.expertise-evidence {
+  margin-top: auto;
+  padding-top: clamp(0.8rem, 1.8vh, 1.2rem);
+  border-top: 1px solid var(--line);
+}
+
+.expertise-evidence strong,
+.expertise-evidence span {
+  display: block;
+}
+
+.expertise-evidence strong {
+  color: var(--brand-strong);
+  font-size: clamp(1.45rem, 2.5vw, 2.2rem);
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.expertise-evidence span {
+  max-width: 18rem;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: clamp(0.62rem, 0.75vw, 0.7rem);
+  line-height: 1.35;
+}
+
+.expertise-link {
+  margin-top: clamp(0.7rem, 1.5vh, 1rem);
+  color: var(--brand-strong);
+  font-size: 0.7rem;
+  font-weight: 780;
+  text-decoration: none;
+}
+
+.expertise-link:hover {
+  color: var(--ink);
 }
 
 .compact-expertise-grid .expertise-item {
@@ -2332,6 +2403,22 @@ textarea {
   .profile-prose {
     min-height: auto;
     overflow: visible;
+  }
+
+  .expertise-list {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .expertise-row,
+  .expertise-row + .expertise-row {
+    min-height: auto;
+    padding: 1.25rem 0 2rem;
+    border-left: 0;
+  }
+
+  .expertise-evidence {
+    margin-top: 1.5rem;
   }
 
   .course-summary {

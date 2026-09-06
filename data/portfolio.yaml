@@ -58,10 +58,34 @@ en:
     items:
       - title: "Product ML"
         description: "Recommendation, ranking, candidate retrieval, personalized discovery, and product scoring."
+        capabilities:
+          - "Candidate generation and retrieval"
+          - "Learning-to-rank and product scoring"
+          - "Recommendation and personalized discovery"
+        proof_value: "~12M"
+        proof_label: "monthly users reached by personalized decision systems"
+        case_title: "See personalized product discovery"
+        case_url: "/work/personalized-product-discovery/"
       - title: "Causal measurement"
         description: "Experiment design, uplift modeling, holdouts, confidence intervals, and decision-oriented measurement."
+        capabilities:
+          - "A/B and factorial experimentation"
+          - "Propensity, uplift, and treatment effects"
+          - "Persistent holdouts and confidence intervals"
+        proof_value: "~US$1M"
+        proof_label: "monthly incremental GMV measured against holdout"
+        case_title: "See causal ML for remarketing"
+        case_url: "/work/causal-ml-remarketing/"
       - title: "Reliable AI systems"
         description: "Production serving, monitoring, MLOps, and rigorous offline evaluation for ML and applied LLMs."
+        capabilities:
+          - "Batch and real-time model serving"
+          - "Monitoring, drift, and experiment tracking"
+          - "LLM evaluation and retrieval metrics"
+        proof_value: "200+"
+        proof_label: "pull requests reviewed across distributed engineering teams"
+        case_title: "See production ML serving"
+        case_url: "/work/production-ml-serving/"
     stack: ["Python", "Go", "R", "SQL", "BigQuery", "Redis", "GCP", "AWS", "PyTorch", "TensorFlow", "LightGBM", "XGBoost", "scikit-learn", "Optuna"]
   teaching:
     eyebrow: "Teaching"
@@ -214,10 +238,34 @@ es:
     items:
       - title: "ML de producto"
         description: "Recomendación, ranking, recuperación de candidatos, descubrimiento personalizado y scoring de productos."
+        capabilities:
+          - "Generación y recuperación de candidatos"
+          - "Learning-to-rank y scoring de productos"
+          - "Recomendación y descubrimiento personalizado"
+        proof_value: "~12M"
+        proof_label: "de usuarios mensuales alcanzados por sistemas personalizados"
+        case_title: "Ver descubrimiento personalizado"
+        case_url: "/es/work/personalized-product-discovery/"
       - title: "Medición causal"
         description: "Diseño experimental, uplift, holdouts, intervalos de confianza y medición orientada a decisiones."
+        capabilities:
+          - "Experimentación A/B y factorial"
+          - "Propensión, uplift y efectos de tratamiento"
+          - "Holdouts persistentes e intervalos de confianza"
+        proof_value: "~US$1M"
+        proof_label: "mensuales de GMV incremental medido contra holdout"
+        case_title: "Ver ML causal para remarketing"
+        case_url: "/es/work/causal-ml-remarketing/"
       - title: "Sistemas de IA confiables"
         description: "Serving en producción, monitoreo, MLOps y evaluación offline rigurosa para ML y LLMs aplicados."
+        capabilities:
+          - "Serving de modelos batch y en tiempo real"
+          - "Monitoreo, drift y tracking de experimentos"
+          - "Evaluación de LLMs y métricas de retrieval"
+        proof_value: "200+"
+        proof_label: "pull requests revisados en equipos de ingeniería distribuidos"
+        case_title: "Ver serving de ML en producción"
+        case_url: "/es/work/production-ml-serving/"
     stack: ["Python", "Go", "R", "SQL", "BigQuery", "Redis", "GCP", "AWS", "PyTorch", "TensorFlow", "LightGBM", "XGBoost", "scikit-learn", "Optuna"]
   teaching:
     eyebrow: "Docencia"
