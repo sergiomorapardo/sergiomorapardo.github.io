@@ -92,7 +92,7 @@
       {{ range $copy.teaching.courses }}
       <article class="course-card compact-course-card">
         <div class="course-summary">
-          <p class="course-kicker">{{ $copy.teaching.repository_label }} · {{ .license }}</p>
+          <p class="course-kicker">{{ .status | default $copy.teaching.repository_label }} · {{ .license }}</p>
           <h3>{{ .title }}</h3>
           <p>{{ .description }}</p>
           <div class="course-meta"><span>{{ .role }}</span><code>{{ .repository }}</code></div>
